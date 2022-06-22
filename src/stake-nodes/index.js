@@ -24,14 +24,16 @@ function main() {
 
             let transactionSender = await pocket.withImportedAccount(account.addressHex, passphrase)
             
-            const stakeAmount = "15005000000" // 15050 POKT
+            const chainID = process.env.CHAIN_ID || 'testnet'
+            // If the node is already staked, you need to stake more than the actual staking amount.
+            const stakeAmount = "15005000000" // 15050 POKT. 
             const serviceURL = new URL(`https://${name}.nodes.pokt.network:${port}`)
             
             let rawTxResponse = await transactionSender
                 .nodeStake(account.publicKey, account.addressHex, ["0002"], stakeAmount, serviceURL)
-                .submit("testnet", "10000", CoinDenom.Upokt, "Staking testnet node")
+                .submit(chainID, "10000", CoinDenom.Upokt, `Staking ${chainID} node`)
             
-            console.log(`${name} has been staked. TxHash:`, rawTxResponse.hash)
+            console.log(`${name} has been staked on ${chainID}. TxHash:`, rawTxResponse.hash)
         }
         catch(err) {
             console.log(err)
