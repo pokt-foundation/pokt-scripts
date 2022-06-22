@@ -1,0 +1,26 @@
+{
+  "name": "pokt-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisog/pokt-scripts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crisog/pokt-scripts/issues"
+  },
+  "homepage": "https://github.com/crisog/pokt-scripts#readme",
+  "dependencies": {
+    "@pokt-network/pocket-js": "https://github.com/pokt-network/pocket-js.git#a0e7fd251f1db9423583eacd08549f750698c964",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.1"
+  }
+}
